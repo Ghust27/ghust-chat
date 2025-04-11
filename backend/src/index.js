@@ -1,5 +1,6 @@
 import express from "express"
 import authRoutes from "./routes/auth.route.js"
+import messageRoutes from './routes/message.routes.js'
 import dotenv from 'dotenv'
 dotenv.config()
 import {connectDB} from "./lib/db.js"
@@ -12,6 +13,7 @@ app.use(express.json())
 app.use(cookieParser())
 
 app.use('/api/auth',authRoutes)
+app.use('/api/message',messageRoutes)
 
 app.listen(port,()=>{
     console.log(`Server is runnin on port ${port}`)
